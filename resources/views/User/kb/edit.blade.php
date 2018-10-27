@@ -57,7 +57,7 @@
                                             <label for="comments">Comments:</label>
                                         </div>
                                         <div class="col-sm-9">
-                                            <input type="text" class="span7 form-control text-info {{ $errors->first('comments') }}" name="comments" id="comments" value="{{$kb->comments}}">
+                                            <textarea name='comments' class="span7 form-control" rows='6'>{{$kb->comments}}</textarea>
                                         </div>
                                     </div>
 

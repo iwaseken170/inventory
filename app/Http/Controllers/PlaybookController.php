@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Playbook;
 
 class PlaybookController extends Controller
 {
@@ -13,7 +14,8 @@ class PlaybookController extends Controller
      */
     public function index(){
         
-        return view('user.playbook.index');
+        $playbook = Playbook::all();
+        return view('user.playbook.index',['playbook' => $playbook]);
     }
 
     /**
@@ -21,9 +23,9 @@ class PlaybookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(){
+        
+        return view('user.playbook.create');
     }
 
     /**
@@ -32,9 +34,16 @@ class PlaybookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+        
+        $playbook = new Playbook();
+        $playbook->error = $request->error;
+        $playbook->resolution = $request->resolution;
+        $playbook->comments = $request->comments;
+        $playbook->save();
+
+        //return view('user.playbook.show');
+        return redirect()->back();
     }
 
     /**
@@ -43,9 +52,10 @@ class PlaybookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show($id){
+
+        $playbook = Playbook::findOrfail($id);
+        return view('user.playbook.show')->withPlaybook($playbook);
     }
 
     /**
@@ -54,9 +64,10 @@ class PlaybookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id){
+        
+        $playbook = Playbook::where('id',$id)->first();
+        return view('user.playbook.edit')->withPlaybook($playbook);
     }
 
     /**
@@ -66,9 +77,17 @@ class PlaybookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id){
+        
+        $playbook = findOrfail($id);
+        $playbook->error = $request->error;
+        $playbook->resolution = $request->resolution;
+        $playbook->comments = $request->comments;
+        $playbook->save();
+
+         return redirect()->route('playbook.show', $id);
+     
+
     }
 
     /**

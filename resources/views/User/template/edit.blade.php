@@ -38,8 +38,8 @@
                                         <div class="span4">
                                             <label for="response">Response:</label>
                                         </div>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="span7 form-control text-info {{ $errors->first('response') }}" name="response" id="response" value="{{$template->response}}">
+                                         <div class="col-sm-9">
+                                            <textarea name='response' class="span7 form-control" rows='6'>{{$template->response}}</textarea>
                                         </div>
                                     </div>
 
@@ -47,8 +47,8 @@
                                         <div class="span4">
                                             <label for="comments">Comments:</label>
                                         </div>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="span7 form-control text-info {{ $errors->first('comments') }}" name="comments" id="comments" value="{{$template->comments}}">
+                                       <div class="col-sm-9">
+                                            <textarea name='comments' class="span7 form-control" rows='6'>{{$template->comments}}</textarea>
                                         </div>
                                     </div>
 

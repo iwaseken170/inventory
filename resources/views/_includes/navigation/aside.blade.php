@@ -34,7 +34,6 @@
             <a href="{{route('playbook.index')}}"><i class="icon-folder-close"></i> Automation Playbook</a>
         </li>
 
-
         @endrole
 
         @role('superadministrator')

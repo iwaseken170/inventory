@@ -28,7 +28,7 @@
                                             <label for="concern">Concern:</label>
                                         </div>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control text-info {{ $errors->first('concern') }}" name="concern" id="concern">
+                                            <input type="text" class="span5 form-control text-info {{ $errors->first('concern') }}" name="concern" id="concern">
                                         </div>
                                     </div>
 
@@ -36,8 +36,8 @@
                                         <div class="col-sm-1">
                                             <label for="response">Response:</label>
                                         </div>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control text-info {{ $errors->first('response') }}" name="response" id="response">
+                                      <div class="col-sm-9">
+                                            <textarea name='response' class="span10 form-control" rows='6'></textarea>
                                         </div>
                                     </div>
 
@@ -45,8 +45,8 @@
                                         <div class="col-sm-1">
                                             <label for="comments">Comments:</label>
                                         </div>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control text-info {{ $errors->first('comments') }}" name="comments" id="comments">
+                                          <div class="col-sm-9">
+                                            <textarea name='comments' class="span10 form-control" rows='6'></textarea>
                                         </div>
                                     </div>
                                 </div>
