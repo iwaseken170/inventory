@@ -50,6 +50,7 @@ class KbController extends Controller
         $kb->product = $request->product;
         $kb->comments = $request->comments;
         $kb->save();  
+        $message = new MessageBag(['password' => ['Successfully Logged in!']]);
         return redirect()->route('kb.show',$kb->id);
 
     }
@@ -98,11 +99,10 @@ class KbController extends Controller
          $kb->product = $request->product;
          $kb->comments = $request->comments;
          $kb->save(); 
-
          //return redirect()->route('kb.show', $id);
          return redirect()->action(
-      'KbController@show', ['id' => $id, 'redirected' => 'true']
-    );
+        'KbController@show', ['id' => $id, 'redirected' => 'true']
+         )->with('status', 'KB was added');
 
     }
 

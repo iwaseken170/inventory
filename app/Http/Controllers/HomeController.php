@@ -21,6 +21,7 @@ class HomeController extends Controller{
             ->select('users.*','profiles.*')
             ->where(['profiles.user_id' => $user_id])
             ->first();
+        
         return view('home',['profile' => $profile]);
     }
 

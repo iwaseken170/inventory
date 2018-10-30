@@ -12,10 +12,16 @@
                         View KB Details
                     </h2></legend>
             </section>
-
+                @if (session('status'))
+                    <div class="alert alert-success text-center">
+                        <button class="close" data-dismiss="alert">x</button>
+                        <strong>{{ session('status') }}</strong>
+                    </div>
+  
+                @endif 
             <div class="block">
                 <div class="navbar navbar-inner block-header">
-                    <div class="muted pull-left">KB list</div>
+                    <div class="muted pull-left">KB list</div>               
                 </div>
                 <div class="block-content collapse in">
                     <div class="span12">

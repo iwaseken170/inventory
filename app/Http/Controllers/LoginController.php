@@ -89,7 +89,7 @@ class LoginController extends Controller{
 
         $auth = Auth::guard('web')->attempt(['email'=>$request->email,'password'=>$request->password],$remember_me);
         if ($auth) {
-            return redirect()->route('index');
+            return redirect()->route('index')->withMessage($message);;
         } else {
             $this->incrementLoginAttempts($request);
             $errors = new MessageBag(['password' => ['Invalid Username/Password.']]);

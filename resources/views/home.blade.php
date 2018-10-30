@@ -8,7 +8,7 @@
 
     <div class="container">
         <div class="row">
-           Home
+            Home
         </div>
     </div>
 
