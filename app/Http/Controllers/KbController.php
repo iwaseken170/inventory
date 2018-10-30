@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Kb;
+use LaraFlash;
 
 class KbController extends Controller
 {
@@ -49,7 +50,7 @@ class KbController extends Controller
         $kb->product = $request->product;
         $kb->comments = $request->comments;
         $kb->save();  
-        return redirect()->back();
+        return redirect()->route('kb.show',$kb->id);
 
     }
 
@@ -59,9 +60,11 @@ class KbController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id){
+    public function show(Request $request,$id){
         
         $kb = Kb::findOrfail($id);
+        //return view('user.kb.show')->withKb($kb);
+        if($request->redirected) LaraFlash::new()->content('KB Updated')->title('Success')->type('success');
         return view('user.kb.show')->withKb($kb);
     }
 
@@ -96,7 +99,10 @@ class KbController extends Controller
          $kb->comments = $request->comments;
          $kb->save(); 
 
-         return redirect()->route('kb.show', $id);
+         //return redirect()->route('kb.show', $id);
+         return redirect()->action(
+      'KbController@show', ['id' => $id, 'redirected' => 'true']
+    );
 
     }
 
@@ -106,8 +112,9 @@ class KbController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Request $request){
+        
+        Kb::destroy($request->id);
+        return response(['msg' => 'Template deleted', 'status' => 'success']);
     }
 }

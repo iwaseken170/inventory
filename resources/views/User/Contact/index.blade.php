@@ -59,7 +59,7 @@
                                     <td style="text-align: center; vertical-align:middle;width:190px">
                                         <a href="{{route('contact.show', $contact->id)}}"><button class="btn btn-default btn-edit-pet btn-mini"  data-id="{{$contact->id}}"><i class="icon-eye-open"></i> View</button></a>
                                         <a href="{{route('contact.edit', $contact->id)}}"><button class="btn btn-info btn-edit-pet btn-mini"  data-id="{{$contact->id}}"><i class="icon-edit"></i> Edit</button></a>
-                                        <button class="btn btn-danger btn-delete-pet btn-mini btn-delete-file" data-id="{{$contact->id}}"><i class="icon-trash"></i> Del</button>
+                                        <button class="btn btn-danger btn-delete-contact btn-mini btn-delete-file" data-id="{{$contact->id}}"><i class="icon-trash"></i> Del</button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -97,9 +97,9 @@
             })
         })
 
-        $('tbody').delegate('.btn-delete-user','click',function(){
+        $('tbody').delegate('.btn-delete-contact','click',function(){
             var value = $(this).data('id');
-            var url = '{{URL::to('manage/deleteUser')}}';
+            var url = '{{URL::to('manage/deleteContact')}}';
             if(confirm('Are you sure to delete?')==true){
                 $.ajax({
                 type : 'post',

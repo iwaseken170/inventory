@@ -44,7 +44,7 @@ class ContactController extends Controller
         $contacts->comments = $request->comments;
         $contacts->save();
 
-        return redirect()->back();
+        return redirect()->route('contact.show',$contacts->id);
     }
 
     /**
@@ -98,8 +98,8 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Request $request){
+        
+        Contact::destroy($request->id);
     }
 }

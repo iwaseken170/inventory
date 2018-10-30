@@ -42,7 +42,7 @@ class LinkController extends Controller
         $link->comments = $request->comments;
         $link->save();
 
-        return redirect()->back();
+        return redirect()->route('links.show',$link->id);
     }
 
     /**
@@ -93,8 +93,8 @@ class LinkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Request $request){
+        
+        Link::destroy($request->id);
     }
 }

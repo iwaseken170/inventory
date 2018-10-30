@@ -57,7 +57,7 @@
                                     <td style="text-align: center; vertical-align:middle;width:190px">
                                         <a href="{{route('playbook.show', $playbooks->id)}}"><button class="btn btn-default btn-edit-pet btn-mini"  data-id="{{$playbooks->id}}"><i class="icon-eye-open"></i> View</button></a>
                                         <a href="{{route('playbook.edit', $playbooks->id)}}"><button class="btn btn-info btn-edit-pet btn-mini"  data-id="{{$playbooks->id}}"><i class="icon-edit"></i> Edit</button></a>
-                                        <button class="btn btn-danger btn-delete-pet btn-mini btn-delete-file" data-id="{{$playbooks->id}}"><i class="icon-trash"></i> Del</button>
+                                          <button class="btn btn-danger btn-delete-playbook btn-mini btn-delete-file" data-id="{{$playbooks->id}}"><i class="icon-trash"></i> Del</button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -95,9 +95,9 @@
             })
         })
 
-        $('tbody').delegate('.btn-delete-user','click',function(){
+        $('tbody').delegate('.btn-delete-playbook','click',function(){
             var value = $(this).data('id');
-            var url = '{{URL::to('manage/deleteUser')}}';
+            var url = '{{URL::to('manage/deletePlaybook')}}';
             if(confirm('Are you sure to delete?')==true){
                 $.ajax({
                 type : 'post',

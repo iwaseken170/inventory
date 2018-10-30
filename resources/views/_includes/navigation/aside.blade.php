@@ -6,19 +6,22 @@
 
         <!--User Pannel -->
         @role('user')
-        <li class="{{ Route::currentRouteNamed('kb.index') ? 'active' : '' }}">
+        <!--<li class="{{ Route::currentRouteNamed('kb.index') ? 'active' : '' }}">
+            <a href="{{route('kb.index')}}"><i class="icon-file"></i> Knowledge Base</a>
+        </li>-->
+         <li class="{{Nav::isResource('kb')}}">
             <a href="{{route('kb.index')}}"><i class="icon-file"></i> Knowledge Base</a>
         </li>
 
-        <li class="{{ Route::currentRouteNamed('escalation.index') ? 'active' : '' }}">
+        <li class="{{Nav::isResource('escalation')}}">
             <a href="{{route('escalation.index')}}"><i class="icon-folder-open"></i> Escalation</a>
         </li>
 
-        <li class="{{ Route::currentRouteNamed('links.index') ? 'active' : '' }}">
+        <li class="{{Nav::isResource('links')}}">
             <a href="{{route('links.index')}}"><i class="icon-lock"></i> Links</a>
         </li>
 
-         <li class="{{ Route::currentRouteNamed('support_contacts.index') ? 'active' : '' }}">
+         <li class="{{Nav::isResource('support_contacts')}}">
             <a href="{{route('support_contacts.index')}}"><i class="icon-user"></i> Supports</a>
         </li>
 
@@ -26,11 +29,11 @@
             <a href="{{route('contact.index')}}"><i class="icon-book"></i> Contacts</a>
         </li>
 
-        <li class="{{ Route::currentRouteNamed('template.index') ? 'active' : '' }}">
+        <li class="{{Nav::isResource('template')}}">
             <a href="{{route('template.index')}}"><i class="icon-pencil"></i> Template</a>
         </li>
 
-         <li class="{{ Route::currentRouteNamed('playbook.index') ? 'active' : '' }}">
+         <li class="{{Nav::isResource('playbook')}}">
             <a href="{{route('playbook.index')}}"><i class="icon-folder-close"></i> Automation Playbook</a>
         </li>
 

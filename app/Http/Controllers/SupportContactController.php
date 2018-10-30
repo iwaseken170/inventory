@@ -43,7 +43,7 @@ class SupportContactController extends Controller
         $supports->comments = $request->comments;
         $supports->save();
 
-        return redirect()->back();
+        return redirect()->route('support_contacts.show',$supports->id);
     }
 
     /**
@@ -95,8 +95,8 @@ class SupportContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Request $request){
+        
+        Support::destroy($request->id);
     }
 }

@@ -29,12 +29,19 @@ Route::get('/logout', ['as' => 'logout', 'uses' => 'LoginController@getLogout'])
 Route::prefix('manage')->middleware('role:user')->group(function(){
 	Route::get('/kb','KbController@index')->name('manage.kb');
 	Route::resource('/kb','KbController');
+        Route::post('/deleteKB','KbController@destroy');
 	Route::resource('/escalation','EscalationController');
+        Route::post('/deleteEsc','EscalationController@destroy');
 	Route::resource('/links','LinkController');
+        Route::post('/deleteLink','LinkController@destroy');
 	Route::resource('/support_contacts','SupportContactController');
+        Route::post('/deleteSupport','SupportContactController@destroy');
     Route::resource('/contact','ContactController');
+        Route::post('/deleteContact','ContactController@destroy');
     Route::resource('/template','TemplateController');
+        Route::post('/deleteTemplate','TemplateController@destroy');
     Route::resource('/playbook','PlaybookController');
+        Route::post('/deletePlaybook','PlaybookController@destroy');
 
 
 });

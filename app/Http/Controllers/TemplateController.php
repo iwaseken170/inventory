@@ -42,7 +42,7 @@ class TemplateController extends Controller
         $template->comments = $request->comments;
         $template->save();
 
-        return redirect()->route('template.index');
+        return redirect()->route('template.show',$template->id);
     }
 
     /**
@@ -95,8 +95,8 @@ class TemplateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Request $request){
+        
+        Template::destroy($request->id);
     }
 }

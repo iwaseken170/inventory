@@ -45,7 +45,7 @@ class EscalationController extends Controller
         $escalation->comments = $request->comments;
         $escalation->save();
 
-         return redirect()->back();
+         return redirect()->route('escalation.show',$escalation->id);
 
     }
 
@@ -100,8 +100,8 @@ class EscalationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Request $request){
+        
+        Escalation::destroy($request->id);
     }
 }

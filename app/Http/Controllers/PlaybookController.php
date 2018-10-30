@@ -43,7 +43,7 @@ class PlaybookController extends Controller
         $playbook->save();
 
         //return view('user.playbook.show');
-        return redirect()->back();
+        return redirect()->route('playbook.show',$playbook->id);
     }
 
     /**
@@ -79,7 +79,7 @@ class PlaybookController extends Controller
      */
     public function update(Request $request, $id){
         
-        $playbook = findOrfail($id);
+        $playbook = Playbook::findOrfail($id);
         $playbook->error = $request->error;
         $playbook->resolution = $request->resolution;
         $playbook->comments = $request->comments;
@@ -96,8 +96,8 @@ class PlaybookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Request $request){
+        
+        Playbook::destroy($request->id);
     }
 }
