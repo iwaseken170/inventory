@@ -41,7 +41,7 @@ class RoleController extends Controller{
             $role->syncPermissions(explode(',', $request->permissions));
         }
 
-        return redirect()->route('roles.show', $role->id);
+        return redirect()->route('roles.show', $role->id)->with('store', 'Role was saved');
     }
 
 
@@ -76,7 +76,7 @@ class RoleController extends Controller{
         }
 
         Session::flash('success', 'Successfully update the '. $role->display_name . ' role in the database.');
-        return redirect()->route('roles.show', $id);
+        return redirect()->route('roles.show', $id)->with('update', 'Role was updated');
     }
 
     public function destroy($id){

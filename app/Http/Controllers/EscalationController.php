@@ -45,7 +45,7 @@ class EscalationController extends Controller
         $escalation->comments = $request->comments;
         $escalation->save();
 
-         return redirect()->route('escalation.show',$escalation->id);
+         return redirect()->route('escalation.show',$escalation->id)->with('store', 'Escalation was saved');
 
     }
 
@@ -91,7 +91,7 @@ class EscalationController extends Controller
         $escalation->comments = $request->comments;
         $escalation->save();
 
-        return redirect()->route('escalation.show',$escalation);
+        return redirect()->route('escalation.show',$escalation)->with('update', 'Escalation was updated');;
     }
 
     /**

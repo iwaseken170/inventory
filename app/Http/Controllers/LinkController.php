@@ -42,7 +42,7 @@ class LinkController extends Controller
         $link->comments = $request->comments;
         $link->save();
 
-        return redirect()->route('links.show',$link->id);
+        return redirect()->route('links.show',$link->id)->with('store', 'Link was saved');;
     }
 
     /**
@@ -84,7 +84,7 @@ class LinkController extends Controller
         $links->comments = $request->comments;
         $links->save();
 
-        return redirect()->route('links.show',$links);
+        return redirect()->route('links.show',$links)->with('update', 'Link was updated');;
     }
 
     /**

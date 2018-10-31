@@ -53,7 +53,7 @@ class UserController extends Controller{
             $user->syncRoles(explode(',', $request->roles));
         }
 
-        return redirect()->route('users.show',$user->id);
+        return redirect()->route('users.show',$user->id)->with('store', 'User was saved');
 
     }
 
@@ -96,7 +96,7 @@ class UserController extends Controller{
         $user->save();
         if($user->save()){
             $user->syncRoles(explode(',', $request->roles));
-            return redirect()->route('users.show', $id)->with('success','success');
+            return redirect()->route('users.show', $id)->with('success','success')->with('update', 'User was updated');;
         }else{
             return redirect()->route('users.show', $id);
         }

@@ -13,6 +13,19 @@
                     </h2></legend>
             </section>
 
+                 @if (session('update'))
+                    <div class="alert alert-info text-center">
+                        <button class="close" data-dismiss="alert">x</button>
+                        <strong>{{ session('update') }}</strong>
+                    </div>
+               @elseif (session('store'))
+                      <div class="alert alert-success text-center">
+                        <button class="close" data-dismiss="alert">x</button>
+                        <strong>{{ session('store') }}</strong>
+                    </div>
+
+                @endif 
+                
             <div class="well">
                 <div class="block-content collapse in">
                     <div class="span12">

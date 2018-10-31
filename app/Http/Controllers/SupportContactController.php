@@ -43,7 +43,7 @@ class SupportContactController extends Controller
         $supports->comments = $request->comments;
         $supports->save();
 
-        return redirect()->route('support_contacts.show',$supports->id);
+        return redirect()->route('support_contacts.show',$supports->id)->with('store', 'Support was saved');
     }
 
     /**
@@ -86,7 +86,7 @@ class SupportContactController extends Controller
         $supports->comments = $request->comments;
         $supports->save();
 
-        return redirect()->route('support_contacts.show',$id);
+        return redirect()->route('support_contacts.show',$id)->with('update', 'Support was updated');
     }
 
     /**

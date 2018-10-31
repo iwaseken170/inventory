@@ -42,7 +42,7 @@ class TemplateController extends Controller
         $template->comments = $request->comments;
         $template->save();
 
-        return redirect()->route('template.show',$template->id);
+        return redirect()->route('template.show',$template->id)->with('store', 'Template was saved');
     }
 
     /**
@@ -86,7 +86,7 @@ class TemplateController extends Controller
         $template->comments = $request->comments;
         $template->save();
 
-        return view('user.template.show')->withTemplate($template);
+        return view('user.template.show')->withTemplate($template)->with('update', 'Template was updated');
     }
 
     /**

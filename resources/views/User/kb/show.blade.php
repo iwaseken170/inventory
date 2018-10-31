@@ -12,12 +12,17 @@
                         View KB Details
                     </h2></legend>
             </section>
-                @if (session('status'))
-                    <div class="alert alert-success text-center">
+                @if (session('update'))
+                    <div class="alert alert-info text-center">
                         <button class="close" data-dismiss="alert">x</button>
-                        <strong>{{ session('status') }}</strong>
+                        <strong>{{ session('update') }}</strong>
                     </div>
-  
+               @elseif (session('store'))
+                      <div class="alert alert-success text-center">
+                        <button class="close" data-dismiss="alert">x</button>
+                        <strong>{{ session('store') }}</strong>
+                    </div>
+
                 @endif 
             <div class="block">
                 <div class="navbar navbar-inner block-header">

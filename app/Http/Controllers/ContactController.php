@@ -44,7 +44,7 @@ class ContactController extends Controller
         $contacts->comments = $request->comments;
         $contacts->save();
 
-        return redirect()->route('contact.show',$contacts->id);
+        return redirect()->route('contact.show',$contacts->id)->with('store', 'Contact was saved');
     }
 
     /**
@@ -88,7 +88,7 @@ class ContactController extends Controller
         $contact->comments = $request->comments;
         $contact->save();
 
-        return redirect()->route('contact.show',$id);
+        return redirect()->route('contact.show',$id)->with('update', 'Contact was updated');;
 
     }
 

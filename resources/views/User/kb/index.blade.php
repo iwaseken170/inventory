@@ -104,7 +104,7 @@
                 url :url,
                 data : {'id':value},
                 success:function(data){
-                window.location.reload();
+                    window.location.reload();
                 }
             });
             }

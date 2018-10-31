@@ -43,7 +43,7 @@ class PlaybookController extends Controller
         $playbook->save();
 
         //return view('user.playbook.show');
-        return redirect()->route('playbook.show',$playbook->id);
+        return redirect()->route('playbook.show',$playbook->id)->with('store', 'Playbook was saved');
     }
 
     /**
@@ -85,7 +85,7 @@ class PlaybookController extends Controller
         $playbook->comments = $request->comments;
         $playbook->save();
 
-         return redirect()->route('playbook.show', $id);
+         return redirect()->route('playbook.show', $id)->with('update', 'Playbook was updated');
      
 
     }
