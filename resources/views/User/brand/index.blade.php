@@ -15,19 +15,21 @@
             <!-- block -->
             <section class="content-header">
                 <legend><h2>
-                    Automation Playbook
+                    Manage Brand
                 </h2></legend>
             </section>
 
+
+
             <div class="block">
                 <div class="navbar navbar-inner block-header">
-                    <div class="muted pull-left">Playbook List</div>
+                    <div class="muted pull-left">Brand list</div>
                 </div>
                 <div class="block-content collapse in">
                     <div class="span12">
                         <div class="table-toolbar">
                             <div class="btn-group">
-                                <a href="{{route('playbook.create')}}"><button class="btn btn-success"><i class="icon-plus icon-white"></i> Add Playbook</button></a>
+                                <a href="{{route('brand.create')}}"><button class="btn btn-success"><i class="icon-plus icon-white"></i> Create Brand</button></a>
                             </div>
                             <div class="btn-group pull-right">
                                 <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
@@ -42,22 +44,22 @@
                         <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example1">
                             <thead>
                             <tr>
-                                <th>Error Message</th>
-                                <th>Resolution</th>
-                                <th>Comments</th>
+                                <th>Brand Name</th>
+                                <th>Status</th>
+                                <th>Created at</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($playbook as $key => $playbooks)
-                                <tr id="playbook{{$playbooks->id}}">
-                                    <td>{{$playbooks->error}}</td>
-                                    <td>{{$playbooks->resolution}}</td>
-                                    <td>{{$playbooks->comments}}</td>
+                            @foreach($brands as $key => $brand)
+                                <tr id="user{{$brand->id}}">
+                                    <td>{{$brand->brand_name}}</td>
+                                    <td>{{$brand->brand_status}}</td>
+                                    <td>{{$brand->created_at->toFormattedDateString()}}</td>
                                     <td style="text-align: center; vertical-align:middle;width:190px">
-                                        <a href="{{route('playbook.show', $playbooks->id)}}"><button class="btn btn-default btn-edit-pet btn-mini"  data-id="{{$playbooks->id}}"><i class="icon-eye-open"></i> View</button></a>
-                                        <a href="{{route('playbook.edit', $playbooks->id)}}"><button class="btn btn-info btn-edit-pet btn-mini"  data-id="{{$playbooks->id}}"><i class="icon-edit"></i> Edit</button></a>
-                                          <button class="btn btn-danger btn-delete-playbook btn-mini btn-delete-file" data-id="{{$playbooks->id}}"><i class="icon-trash"></i> Del</button>
+                                        <a href="{{route('brand.show', $brand->brand_id)}}"><button class="btn btn-default btn-edit-pet btn-mini"  data-id="{{$brand->brand_id}}"><i class="icon-eye-open"></i> View</button></a>
+                                        <a href="{{route('brand.edit', $brand->id)}}"><button class="btn btn-info btn-edit-pet btn-mini"  data-id="{{$brand->brand_id}}"><i class="icon-edit"></i> Edit</button></a>
+                                        <button class="btn btn-danger btn-delete-pet btn-mini btn-delete-user" data-id=""><i class="icon-trash"></i> Del</button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -95,9 +97,9 @@
             })
         })
 
-        $('tbody').delegate('.btn-delete-playbook','click',function(){
+        $('tbody').delegate('.btn-delete-user','click',function(){
             var value = $(this).data('id');
-            var url = '{{URL::to('manage/deletePlaybook')}}';
+            var url = '{{URL::to('')}}';
             if(confirm('Are you sure to delete?')==true){
                 $.ajax({
                 type : 'post',

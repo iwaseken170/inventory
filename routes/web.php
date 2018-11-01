@@ -15,9 +15,6 @@ Auth::routes();
 Route::get('/', 'LoginController@getLogin')->name('index');
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/404','LoginController@getError');
-Route::get('/post','PostController@post')->name('post');
-Route::get('/profile','ProfileController@profile');
-Route::post('/addProfile','ProfileController@addProfile')->name('manage.addProfile');
 
 Route::get('/login',['as'=>'getLogin','uses'=>'LoginController@getLogin']);
 Route::post('/login',['as'=>'login','uses'=>'LoginController@postLogin']);
@@ -27,21 +24,6 @@ Route::get('/logout', ['as' => 'logout', 'uses' => 'LoginController@getLogout'])
 
 
 Route::prefix('manage')->middleware('role:user')->group(function(){
-	Route::get('/kb','KbController@index')->name('manage.kb');
-	Route::resource('/kb','KbController');
-        Route::post('/deleteKB','KbController@destroy');
-	Route::resource('/escalation','EscalationController');
-        Route::post('/deleteEsc','EscalationController@destroy');
-	Route::resource('/links','LinkController');
-        Route::post('/deleteLink','LinkController@destroy');
-	Route::resource('/support_contacts','SupportContactController');
-        Route::post('/deleteSupport','SupportContactController@destroy');
-    Route::resource('/contact','ContactController');
-        Route::post('/deleteContact','ContactController@destroy');
-    Route::resource('/template','TemplateController');
-        Route::post('/deleteTemplate','TemplateController@destroy');
-    Route::resource('/playbook','PlaybookController');
-        Route::post('/deletePlaybook','PlaybookController@destroy');
 
 
 });
@@ -50,11 +32,10 @@ Route::prefix('manage')->middleware('role:user')->group(function(){
 Route::prefix('manage')->middleware('role:superadministrator|administrator|editor|author|contributor')->group(function(){
     Route::get('/','ManageController@index');
     Route::get('/dashboard','ManageController@index')->name('manage.dashboard');
-    Route::get('/category','CategoryController@category')->name('manage.category');
-    Route::post('/addCategory','CategoryController@addCategory')->name('manage.addCategory');
     Route::resource('/users','UserController');
     Route::resource('/roles','RoleController');
     route::resource('/permissions','PermissionController');
     Route::post('/deleteUser','UserController@destroy');
+    Route::resource('/brand','BrandController');
 });
 

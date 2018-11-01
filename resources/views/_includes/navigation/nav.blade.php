@@ -6,9 +6,27 @@
                 <span class="icon-bar"></span>
             </a>
             <!--<a class="brand" href="#"><img src="{{asset('images/logo2.png')}}" style="height:19px; width:100px;"/></a>-->
-            <a class="brand" href="#"><strong>Regional Help Desk</strong></a>
-
-            <div class="nav-collapse collapse">
+                     
+            <a class="brand" href="#"><strong>Inventory System</strong></a>
+              
+              
+            <a class="brand" href="#"></a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">        
+                        <li><a href="#"><i class="icon-film"></i>  Dashboard</a></li>
+                        <li class="{{Nav::isResource('brand')}}"><a href="{{route('brand.index')}}"><i class="icon-barcode"></i>  Brand</a></li>        
+                        <li id="navCategories"><a href="categories.php"> <i class="icon-list"></i> Category</a></li>
+                        <li id="navProduct"><a href="product.php"> <i class="icon-tag"></i> Product </a></li>     
+                        <li class="dropdown" id="navOrder">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="icon-shopping-cart"></i> Orders <span class="caret"></span></a>
+                    <ul class="dropdown-menu">            
+                        <li id="topNavAddOrder"><a href="orders.php?o=add"> <i class="glyphicon glyphicon-plus"></i> Add Orders</a></li>            
+                        <li id="topNavManageOrder"><a href="orders.php?o=manord"> <i class="glyphicon glyphicon-edit"></i> Manage Orders</a></li>            
+                    </ul>
+                    </li> 
+                        <li id="navReport"><a href="report.php"> <i class="icon-check"></i> Report </a></li>       
+               
+            </ul>
                 @if(Auth::check())
                 <ul class="nav pull-right">
                     <li class="dropdown">

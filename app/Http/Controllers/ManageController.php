@@ -14,13 +14,13 @@ class ManageController extends Controller{
     }
 
     public function index(){
-        $user_id = Auth::user()->id;
+        /*$user_id = Auth::user()->id;
         $profile = DB::table('users')
             ->join('profiles','users.id','=','profiles.user_id')
             ->select('users.*','profiles.*')
             ->where(['profiles.user_id' => $user_id])
             ->first();
-        return view('manage.dashboard',['profile' => $profile]);
+        return view('manage.dashboard',['profile' => $profile]);*/
     }
 
   

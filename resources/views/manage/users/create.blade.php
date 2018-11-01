@@ -5,6 +5,45 @@
 @endsection
 
 @section('content')
+
+<style type="text/css">
+    .student-photo{
+        height: 120px;
+        padding-left: 1px;
+        padding-right: 1px;
+        border: 1px solid #ccc;
+        background:#eee;
+        width: 120px;
+        margin: 0 auto;
+
+    }
+    .photo > input[type='file']{
+        display:none;
+    }
+    .photo{
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+    }
+    .student-id{
+        background-repeat: repeat-x;
+        border-color: #ccc;
+        padding: 5px;
+        text-align: center;
+        background: #eee;
+        border-bottom: 1px solid #ccc;
+    }
+    .btn-browse{
+        border-color: #ccc;
+        padding: 5px;
+        text-align: center;
+        background: #eee;
+        border:none;
+        border-top: 1px solid #ccc;
+    }
+</style>
+
+
     <div class="span9" id="content">
         <div class="row-fluid">
             <section class="content-header">

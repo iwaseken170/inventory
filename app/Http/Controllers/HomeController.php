@@ -16,13 +16,14 @@ class HomeController extends Controller{
     public function index(){
 
         $user_id = Auth::user()->id;
-        $profile = DB::table('users')
+        /*$profile = DB::table('users')
             ->join('profiles','users.id','=','profiles.user_id')
             ->select('users.*','profiles.*')
             ->where(['profiles.user_id' => $user_id])
             ->first();
         
-        return view('home',['profile' => $profile]);
+        return view('home',['profile' => $profile]);*/
+        return view('home');
     }
 
 }

@@ -4,40 +4,12 @@
             <div class="muted pull-left">General</div>
         </li>
 
+        <li  class="#">
+            <a href="#"><i class="icon-film"></i> Dashboard</a>
+        </li>
+
         <!--User Pannel -->
-        @role('user')
-        <!--<li class="{{ Route::currentRouteNamed('kb.index') ? 'active' : '' }}">
-            <a href="{{route('kb.index')}}"><i class="icon-file"></i> Knowledge Base</a>
-        </li>-->
-         <li class="{{Nav::isResource('kb')}}">
-            <a href="{{route('kb.index')}}"><i class="icon-file"></i> Knowledge Base</a>
-        </li>
-
-        <li class="{{Nav::isResource('escalation')}}">
-            <a href="{{route('escalation.index')}}"><i class="icon-folder-open"></i> Escalation</a>
-        </li>
-
-        <li class="{{Nav::isResource('links')}}">
-            <a href="{{route('links.index')}}"><i class="icon-lock"></i> Links</a>
-        </li>
-
-         <li class="{{Nav::isResource('support_contacts')}}">
-            <a href="{{route('support_contacts.index')}}"><i class="icon-user"></i> Supports</a>
-        </li>
-
-        <li class="{{ Route::currentRouteNamed('contact.index') ? 'active' : '' }}">
-            <a href="{{route('contact.index')}}"><i class="icon-book"></i> Contacts</a>
-        </li>
-
-        <li class="{{Nav::isResource('template')}}">
-            <a href="{{route('template.index')}}"><i class="icon-pencil"></i> Template</a>
-        </li>
-
-         <li class="{{Nav::isResource('playbook')}}">
-            <a href="{{route('playbook.index')}}"><i class="icon-folder-close"></i> Automation Playbook</a>
-        </li>
-
-        @endrole
+       
 
         @role('superadministrator')
 
